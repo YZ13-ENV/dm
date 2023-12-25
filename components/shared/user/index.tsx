@@ -7,7 +7,10 @@ import { useCookieState } from 'ahooks'
 import { useEffect } from "react"
 import { useAuthState } from "@/hooks/useAuthState"
 
-const User = () => {
+type Props = {
+    size?: number
+}
+const User = ({ size=36 }: Props) => {
     const [user] = useAuthState(auth)
     const [_, setCookie] = useCookieState('uid')
     useEffect(() => {
@@ -16,11 +19,11 @@ const User = () => {
         } else setCookie('')
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[user])
-    if (!user) return <Button size='sm' asChild variant='outline'>
+    if (!user) return <Button asChild variant='outline'>
         <Link href='/login'>Войти</Link>
     </Button>
     return (
-        <UserDropdown user={user} />
+        <UserDropdown user={user} size={size} />
     )
 }
 
