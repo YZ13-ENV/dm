@@ -1,13 +1,5 @@
-import Header from "@/components/widgets/headers/default";
-
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <>
-      <Header />
-      <main>
-        
-      </main>
-    </>
-  )
+  return redirect('/home')
 }

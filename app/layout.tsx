@@ -4,7 +4,7 @@ import { Geologica } from 'next/font/google'
 const first_font = Geologica({ subsets: ['latin', 'cyrillic'], weight: ['600', '500', '400', '300', '200'], variable: '--root-font' })
 
 export const metadata: Metadata = {
-  title: 'YZ13',
+  title: 'DM Family',
   description: 'Created by DM Family',
 }
 

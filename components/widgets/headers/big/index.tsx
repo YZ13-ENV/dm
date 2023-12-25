@@ -1,5 +1,10 @@
-import DmMark from "@/components/shared/dm-mark"
-import User from "@/components/shared/user"
+import dynamic from "next/dynamic"
+const DmMark = dynamic(() => import("@/components/shared/dm-mark"), {
+    loading: () => <div className='w-16 h-16 rounded-full bg-muted animate-pulse shrink-0' />
+})
+const User = dynamic(() => import("@/components/shared/user"), {
+    loading: () => <div className='w-16 h-16 rounded-full bg-muted animate-pulse shrink-0' />
+})
 
 type Props = {
     children?: JSX.Element
