@@ -15,8 +15,8 @@ const AllPosts = dynamic(() => import('@/components/widgets/posts-all'), {
 const page = () => {
     return (
         <>
-            <BigHeader transparent />
-            <div className="w-full -z-[1] overflow-visible relative h-screen -top-[88px]">
+            <BigHeader transparent absolute />
+            <div className="w-full overflow-visible relative h-[100dvh]">
                 <Image src='/light.png' className='-z-[1] object-cover 2xl:object-contain' placeholder={`data:image/${light.blurDataURL}`} blurDataURL={light.blurDataURL} fill alt='light' />
                 {/* <RemoteServerLogo  dark={config.remote.logo.dark} light={config.remote.logo.light} size={128} alt="dm-logo" /> */}
                 <main className="relative flex flex-col items-center justify-center w-full max-w-2xl mx-auto gap-4 h-full">
@@ -36,8 +36,8 @@ const page = () => {
                             </span>&nbsp;и производительность
                         </h1>
                         <span className='text-center font-light text-muted-foreground'>
-                            Создавайте и выкладывайте свои работы у нас, планируя новое, воспользуйтесь нашими сервисами. 
-                            Для разные потребностей вам понадобится всего один аккаунт в DM Family
+                            DM служит для расширения возможностей при работе, и поиске вдохновения, 
+                            здесь вы можете построить свои планы и вдохновиться на новые проекты.
                         </span>
                     </div>
                 </main>
