@@ -1,28 +1,36 @@
 'use client'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import UserPreview from "./user-preview"
 import Logout from "./logout"
 import { User } from "firebase/auth"
+import Link from "next/link"
+import { useEffect, useState } from "react"
+import { ShortUserData } from "@/types/user"
+import { user as userAPI } from '@/api/user'
+import Avatar from "@/components/shared/avatar"
 
 type Props = {
     user: User
     size?: number
 }
 const UserDropdown = ({ user, size }: Props) => {
-    if (!user) return null
+    const [short, setShort] = useState<ShortUserData | null>(null)
+    console.log(short)
+    useEffect(() => {
+        userAPI.byId.short(user.uid)
+        .then( data => setShort(data) )
+        // .catch( () => setShort(null) )
+    },[user])
     return (
         <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Avatar style={{ width: `${size}px`, height: `${size}px` }} className="rounded-full w-9 h-9">
-                    <AvatarImage src={user.photoURL || undefined} alt="@shadcn" className="rounded-full" />
-                    <AvatarFallback>{user.displayName ? user.displayName?.slice(0, 2) : 'UR'}</AvatarFallback>
-                </Avatar>
+            <DropdownMenuTrigger className="rounded-full">
+                <Avatar src={user.photoURL} isSubscriber={short?.isSubscriber || false} size={size} />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="p-4 w-60 rounded-xl">
-                <UserPreview user={user} />
+                <UserPreview user={user} position={short ? short.position : undefined} />
                 <DropdownMenuSeparator />
-                {/* <DropdownMenuItem asChild><Link href='/upload/post'>Добавить заметку</Link></DropdownMenuItem> */}
+                <DropdownMenuItem asChild><Link href='/upload/post'>Профиль</Link></DropdownMenuItem>
+                <DropdownMenuSeparator />
                 <Logout />
             </DropdownMenuContent>
         </DropdownMenu>
