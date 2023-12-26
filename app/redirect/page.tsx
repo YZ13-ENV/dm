@@ -16,10 +16,9 @@ const page = async({ searchParams }: Props) => {
     // after add query param into url like, {url}?token={token}
     // then redirect to target url with new params
     // on other side, i need to add token watcher that read data from token param, save it and remove it from url
-
     const token = uid ? await auth.travel(uid) : null
-    if (!token) return redirect(searchParams.link + (searchParams.path ? searchParams.path : ''))
-    return redirect(searchParams.link + (searchParams.path ? searchParams.path : '') + `?token=${token}`)
+    const url = `${searchParams.link}${(searchParams.path ? searchParams.path : '')}${token ? `?token=${token}` : ''}`
+    return redirect(url)
 }
 
 export default page
