@@ -17,7 +17,7 @@ const BigHeader = ({ children, absolute=false, transparent=false }: Props) => {
         <header className={`w-full z-40 min-h-[64px] shrink-0 ${ absolute ? 'absolute top-0 left-0' : '' } ${ transparent ? 'bg-transparent' : 'bg-card border-b' }`}>
             <div className="w-full h-fit shrink-0 flex items-center justify-between px-6 pt-6">
                 <DmMark size={64} />
-                <User size={64} />
+                <User buttonSize='lg' size={64} />
             </div>
             { 
                 children &&
