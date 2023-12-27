@@ -2,7 +2,7 @@ import PostAuthorSkeleton from "./post-author"
 
 const AllPostsSkeleton = () => {
     return (
-        <div className="w-full max-w-6xl px-6 mx-auto">
+        <div className="w-full max-w-6xl">
             <div className="w-full py-6">
                 <div className="w-1/2 rounded-md h-9 bg-muted animate-pulse" />
             </div>
