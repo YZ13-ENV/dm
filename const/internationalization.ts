@@ -76,7 +76,7 @@ export const internationalization: { [key: string]: HomeInter } = {
                         link: dm_family_host
                     },
                     {
-                        short: 'DM/Заметки',
+                        short: 'DM/Notes',
                         link: notes_host
                     }
                 ]                

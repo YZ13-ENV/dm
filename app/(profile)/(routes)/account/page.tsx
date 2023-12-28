@@ -1,8 +1,21 @@
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
 import SettingsBlock from '../../_components/settings-block'
+import { cookies } from 'next/headers'
+import { user as userAPI } from '@/api/user'
 
-const page = () => {
+const page = async() => {
+    const cookiesList = cookies()
+    const uidCookie = cookiesList.get('uid')
+    const uid = uidCookie ? uidCookie.value : null
+    const user = uid ? userAPI.byId.short(uid) : null
+    if (!user) return (
+        <div className='w-full flex flex-col'>
+            <div className="max-w-5xl w-full mx-auto flex items-center justify-center h-full">
+                <span>1</span>
+            </div>
+        </div>
+    )
     return (
         <div className='w-full flex flex-col'>
             <Separator />
@@ -18,7 +31,18 @@ const page = () => {
                     <Separator />
                     <SettingsBlock
                         name='Никнейм'
-                        description='Необязательно, но рекомендуется.'
+                        description='Имя под которым вы можете получить доступ к своим данным быстрее, чем с UID'
+                    >
+                        <Input placeholder='Не указан' />
+                        <div className="w-full h-9 flex items-center rounded-md border">
+                            <span className='px-2 text-sm text-muted-foreground'>darkmaterial.space/</span>
+                            <Separator orientation='vertical' />
+                            <Input className='!border-0 !ring-0' value='yz13' />
+                        </div>
+                    </SettingsBlock>
+                    <SettingsBlock
+                        name='Отображаемое имя'
+                        description='Имя под которым вас будут узнавать другие пользователи'
                     >
                         <Input placeholder='Не указан' />
                         <div className="w-full h-9 flex items-center rounded-md border">
@@ -39,6 +63,12 @@ const page = () => {
                         description='Укажите свою позицию (Frontend-developer, Designer).'
                     >
                         <Input placeholder='Не указан' />
+                    </SettingsBlock>
+                    <SettingsBlock
+                        name='Почта'
+                        description='Нельзя изменить'
+                    >
+                        <Input placeholder='Не указан' disabled />
                     </SettingsBlock>
                 </div>
             </div>
