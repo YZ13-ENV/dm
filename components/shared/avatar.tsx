@@ -7,13 +7,14 @@ type Props = {
     size?: number
     isSubscriber?: boolean
     src: string | StaticImageData | null
+    className?: string
 }
-const Avatar = ({ size=24, isSubscriber=false, src }: Props) => {
+const Avatar = ({ size=24, isSubscriber=false, src, className='' }: Props) => {
     const iconWrapperSize = size * .5
     const iconSize = iconWrapperSize * .5
     return (
         <div style={{ width: `${size}px`, height: `${size}px`}} 
-        className='relative flex items-center justify-center overflow-visible border rounded-full shrink-0 bg-background border-inherit'>
+        className={`relative flex items-center justify-center overflow-visible border rounded-full shrink-0 bg-background border-inherit ${className}`}>
             {
                 src
                 ? <Image src={src} className='rounded-full !relative' fill alt='@avatar' />

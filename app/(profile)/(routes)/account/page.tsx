@@ -3,16 +3,21 @@ import { Separator } from '@/components/ui/separator'
 import SettingsBlock from '../../_components/settings-block'
 import { cookies } from 'next/headers'
 import { user as userAPI } from '@/api/user'
+import DisplayNameBlock from '../../_components/settings-block/diplay-name-block'
+import NicknameBlock from '../../_components/settings-block/nickname-block'
+import AvatarBlock from '../../_components/settings-block/avatar-block'
+import PositionBlock from '../../_components/settings-block/position-block'
+import EmailBlock from '../../_components/settings-block/email-block'
 
 const page = async() => {
     const cookiesList = cookies()
     const uidCookie = cookiesList.get('uid')
     const uid = uidCookie ? uidCookie.value : null
-    const user = uid ? userAPI.byId.short(uid) : null
+    const user = uid ? await userAPI.byId.short(uid) : null
     if (!user) return (
         <div className='w-full flex flex-col'>
             <div className="max-w-5xl w-full mx-auto flex items-center justify-center h-full">
-                <span>1</span>
+                <span className='text-center'>Необходимо авторизоваться для изменения настроек профиля</span>
             </div>
         </div>
     )
@@ -29,47 +34,11 @@ const page = async() => {
                 </div>
                 <div className="w-full h-full flex flex-col px-6">
                     <Separator />
-                    <SettingsBlock
-                        name='Никнейм'
-                        description='Имя под которым вы можете получить доступ к своим данным быстрее, чем с UID'
-                    >
-                        <Input placeholder='Не указан' />
-                        <div className="w-full h-9 flex items-center rounded-md border">
-                            <span className='px-2 text-sm text-muted-foreground'>darkmaterial.space/</span>
-                            <Separator orientation='vertical' />
-                            <Input className='!border-0 !ring-0' value='yz13' />
-                        </div>
-                    </SettingsBlock>
-                    <SettingsBlock
-                        name='Отображаемое имя'
-                        description='Имя под которым вас будут узнавать другие пользователи'
-                    >
-                        <Input placeholder='Не указан' />
-                        <div className="w-full h-9 flex items-center rounded-md border">
-                            <span className='px-2 text-sm text-muted-foreground'>darkmaterial.space/</span>
-                            <Separator orientation='vertical' />
-                            <Input className='!border-0 !ring-0' value='yz13' />
-                        </div>
-                    </SettingsBlock>
-                    <SettingsBlock
-                        direction='horizontal'
-                        name='Аватар'
-                        description='Необязательно, но рекомендуется.'
-                    >
-                        <div className='w-12 h-12 rounded-full ml-auto bg-muted' />
-                    </SettingsBlock>
-                    <SettingsBlock
-                        name='Позиция'
-                        description='Укажите свою позицию (Frontend-developer, Designer).'
-                    >
-                        <Input placeholder='Не указан' />
-                    </SettingsBlock>
-                    <SettingsBlock
-                        name='Почта'
-                        description='Нельзя изменить'
-                    >
-                        <Input placeholder='Не указан' disabled />
-                    </SettingsBlock>
+                    <NicknameBlock uid={user.uid} nickname={user.nickname || ''} />
+                    <DisplayNameBlock nickname={user.nickname || user.uid} displayName={user.displayName} />
+                    <EmailBlock email={user.email} />
+                    <AvatarBlock avatarURL={user.photoUrl} />
+                    <PositionBlock position={user.position || ''} />
                 </div>
             </div>
         </div>

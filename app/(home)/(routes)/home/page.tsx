@@ -24,7 +24,6 @@ const page = () => {
                 <main className="relative flex flex-col items-center justify-center w-full max-w-2xl mx-auto gap-4 h-full">
                     <div className="flex flex-col items-center justify-center w-full gap-4 px-4 mt-12 h-fit">
                         <HeroText />
-
                     </div>
                 </main>
             </div>

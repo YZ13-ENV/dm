@@ -11,3 +11,8 @@ export type ShortUserData = {
     nickname?: string
     [key: string]: any
 }
+
+export type NicknameReference = {
+    nickname: string
+    uid: string
+}

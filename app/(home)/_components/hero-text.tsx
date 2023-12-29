@@ -26,7 +26,7 @@ const HeroText = () => {
                         if (index === 0) {
                             return (
                                 <span key={part + index} className='relative w-fit h-fit px-2 pb-1 inline-block'>{part}
-                                    <span style={{ left: 'calc((358px - (51px / 2)) / 2)' }} className="absolute -top-8 px-1 py-0.5 text-xs font-normal rounded-sm bg-muted">358x64</span>
+                                    <span style={{ left: 'calc((100% - 51px) / 2)' }} className="absolute -top-8 px-1 py-0.5 text-xs font-normal rounded-sm bg-muted">358x64</span>
                                     <div className="w-full h-[1px] bg-muted-foreground absolute top-[1.25px] left-0" />
                                     <div className="w-full h-[1px] bg-muted-foreground absolute bottom-[1.25px] left-0" />
                                     <div className="w-full h-[1px] bg-muted-foreground absolute bottom-[1.25px] left-0" />
