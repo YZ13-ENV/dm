@@ -1,6 +1,6 @@
 import DmMark from "@/components/shared/dm-mark"
-import User from "@/components/shared/user"
 import Link from "next/link"
+import User from "../user-circle"
 
 type Props = {
     children?: JSX.Element

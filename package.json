@@ -2,8 +2,10 @@
   "name": "dm",
   "version": "0.1.0",
   "private": true,
+  "_comment": "script prepublish run next build, after successful build run vercel that build preview on vercel and after run production build on vercel",
   "scripts": {
-    "dev": "next dev --turbo",
+    "prepublish": "pnpm build && vercel && vercel --prod",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -27,8 +29,11 @@
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
     "react-icons": "^4.12.0",
+    "react-responsive": "^9.0.2",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
+    "ui": "github:yz13-env/ui",
+    "ui@latest": "link:yz13-env/ui@latest",
     "vaul": "^0.8.0"
   },
   "devDependencies": {

@@ -6,8 +6,6 @@ import AllPostsSkeleton from '@/components/skeletons/posts-all'
 import dynamic from 'next/dynamic'
 import StatusBar from '@/components/widgets/status-bar'
 import DmMark from '@/components/shared/dm-mark'
-import Link from 'next/link'
-import { dm_family_host, notes_host, yz13_host } from '@/const/host'
 import HeroText from '../../_components/hero-text'
 import HomeProjects from '../../_components/home-projects'
 const AllPosts = dynamic(() => import('@/components/widgets/posts-all'), {
@@ -19,7 +17,7 @@ const page = () => {
         <>
             <BigHeader transparent absolute />
             <div className="w-full overflow-visible relative h-[100dvh]">
-                <Image src='/light.png' className='-z-[1] object-cover 2xl:object-contain' placeholder={`data:image/${light.blurDataURL}`} blurDataURL={light.blurDataURL} fill alt='light' />
+                <Image src='/light.png' className='-z-[1] object-cover' placeholder={`data:image/${light.blurDataURL}`} blurDataURL={light.blurDataURL} fill alt='light' />
                 {/* <RemoteServerLogo  dark={config.remote.logo.dark} light={config.remote.logo.light} size={128} alt="dm-logo" /> */}
                 <main className="relative flex flex-col items-center justify-center w-full max-w-2xl mx-auto gap-4 h-full">
                     <div className="flex flex-col items-center justify-center w-full gap-4 px-4 mt-12 h-fit">

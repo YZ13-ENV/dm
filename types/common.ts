@@ -1,3 +1,4 @@
+import type { IconType } from "react-icons"
 export type ChunkResponse<T> = {
     count: number
     data: T
@@ -30,5 +31,4 @@ export type PickedCategory<T extends keyof Categories> = Categories[T]
 // - "other"
 
 export type AllPostsRatio = `${number}-${number}-${number}-${number}-${number}`
-
 
