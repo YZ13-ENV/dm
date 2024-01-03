@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 
 export const fundamental_map: DocumentMap = {
     id: 'fundamentals',
+    name: 'Основы',
     blocks: [
         <WelcomeBlock key={'fundamentals-welcome'} />,
         <Separator key={'fundamentals-separator-1'} />
