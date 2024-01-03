@@ -8,6 +8,7 @@ const DmMark = dynamic(() => import("@/components/shared/dm-mark"), {
 // })
 import User from '../user-circle'
 import { ProjectsGrid } from 'ui'
+import FeedBack from "../../feedback"
 
 type Props = {
     children?: JSX.Element
@@ -22,6 +23,7 @@ const BigHeader = ({ children, absolute=false, transparent=false }: Props) => {
                 <Link href='/'><DmMark size={48} /></Link>
                 {/* <UserCircle auth={auth} /> */}
                 <div className='flex items-center gap-6'>
+                    <FeedBack />
                     <ProjectsGrid />
                     <User size={48} />
                 </div>

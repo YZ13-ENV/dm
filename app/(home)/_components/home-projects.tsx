@@ -1,24 +1,24 @@
 'use client'
 import { internationalization } from "@/const/internationalization";
-import { remoteConfig } from "@/utils/remote-config";
-import { fetchAndActivate, getString } from "firebase/remote-config";
+import { app } from "@/utils/app";
+import { fetchAndActivate, getRemoteConfig, getString } from "firebase/remote-config";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const HomeProjects = () => {
     const [lang, setLang] = useState<string>('rus')
-    fetchAndActivate(remoteConfig)
-    .then(() => {
-        const lang = getString(remoteConfig, "lang")
-        setLang(lang)
-        // ...
-    })
-    .catch((err) => {
-        // ...
-    });
     const title = internationalization[lang].home.projects.title
     const description = internationalization[lang].home.projects.description
     const items = internationalization[lang].home.projects.items
+    useEffect(() => {
+        const remoteConfig = getRemoteConfig(app)
+        remoteConfig.settings.minimumFetchIntervalMillis = 3600000;
+        fetchAndActivate(remoteConfig)
+        .then(() => {
+            const lang = getString(remoteConfig, "lang")
+            setLang(lang)
+        })
+    },[])
     return (
         <div className="w-full h-fit border-y py-12 gap-12 flex flex-col">
             <section className="max-w-7xl mx-auto w-full px-6 flex flex-col gap-4">

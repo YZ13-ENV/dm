@@ -1,23 +1,23 @@
 'use client'
 import { internationalization } from "@/const/internationalization";
-import { remoteConfig } from "@/utils/remote-config";
-import { fetchAndActivate, getString } from "firebase/remote-config";
-import { useState } from "react";
+import { app } from "@/utils/app";
+import { fetchAndActivate, getRemoteConfig, getString } from "firebase/remote-config";
+import { useEffect, useState } from "react";
 
 const HeroText = () => {
     const [lang, setLang] = useState<string>('rus')
-    fetchAndActivate(remoteConfig)
-    .then(() => {
-        const lang = getString(remoteConfig, "lang")
-        setLang(lang)
-        // ...
-    })
-    .catch((err) => {
-        // ...
-    });
     const title = internationalization[lang].home.hero.title
     const titleArr = title.split(' ')
     const description = internationalization[lang].home.hero.description
+    useEffect(() => {
+        const remoteConfig = getRemoteConfig(app)
+        remoteConfig.settings.minimumFetchIntervalMillis = 3600000;
+        fetchAndActivate(remoteConfig)
+        .then(() => {
+            const lang = getString(remoteConfig, "lang")
+            setLang(lang)
+        })
+    },[])
     return (
         <>
             <h1 className='z-10 select-none text-3xl font-semibold text-center md:text-6xl text-accent-foreground'>
