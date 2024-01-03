@@ -1,11 +1,13 @@
 
 export type SideElementProps = {
     type: 'single'
+    id: string
     name: string
     hasArrow?: boolean
 }
 export type SideGroupProps = {
     type: 'group'
+    id: string
     name: string
     items: SideElementProps[]
 }

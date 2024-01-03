@@ -2,19 +2,20 @@ import SideElement from "@/app/(docs)/_components/side/side-element"
 import SideGroup from "@/app/(docs)/_components/side/side-group"
 import Header from "@/components/widgets/headers/default"
 import { docFinder } from "@/helpers/docFinder"
+import { parseDocId } from "@/helpers/docs"
 import Link from "next/link"
 
 
 type Props = {
     children: JSX.Element | JSX.Element[]
     params: {
-        id: string
+        id: string[]
     }
 }
 const layout = ({ children, params }: Props) => {
     const docId = params.id
-    const documentation = docFinder(docId)
-    if (!documentation) return null
+    const parsedDocId = parseDocId(docId)
+    const documentation = docFinder(parsedDocId.root)
     return (
         <>
             <div className='max-w-7xl mx-auto'>
@@ -30,8 +31,9 @@ const layout = ({ children, params }: Props) => {
             <div className='max-w-7xl w-full mx-auto h-full flex items-start pt-6'>
                 <aside className='px-6 shrink-0 w-64 h-full gap-4  flex flex-col'>
                     {
+                        documentation &&
                         documentation.side.map((item, index) => {
-                            if (item.type === 'group') return <SideGroup key={'group-' + index} group={item} />
+                            if (item.type === 'group') return <SideGroup providedId={parsedDocId.sideValue} key={'group-' + index} group={item} />
                             if (item.type === 'single') return <SideElement key={'single-' + index} element={item} />
                             return null
                         })
