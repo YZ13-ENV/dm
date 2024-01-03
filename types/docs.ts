@@ -10,3 +10,10 @@ export type SideGroupProps = {
     items: SideElementProps[]
 }
 export type SideMap = (SideGroupProps | SideElementProps)[]
+
+
+export type DocumentMap = {
+    id: string
+    side: SideMap
+    blocks: JSX.Element[]
+}

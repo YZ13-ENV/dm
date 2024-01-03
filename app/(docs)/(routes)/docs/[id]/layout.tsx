@@ -1,12 +1,20 @@
-import { Separator } from '@/components/ui/separator'
-import Header from '@/components/widgets/headers/default'
-import Link from 'next/link'
-import React from 'react'
-import SideGroup from '../../_components/side/side-group'
-import { fundamentals } from '../../_components/const/fundamentals'
-import SideElement from '../../_components/side/side-element'
+import SideElement from "@/app/(docs)/_components/side/side-element"
+import SideGroup from "@/app/(docs)/_components/side/side-group"
+import Header from "@/components/widgets/headers/default"
+import { docFinder } from "@/helpers/docFinder"
+import Link from "next/link"
 
-const page = () => {
+
+type Props = {
+    children: JSX.Element | JSX.Element[]
+    params: {
+        id: string
+    }
+}
+const layout = ({ children, params }: Props) => {
+    const docId = params.id
+    const documentation = docFinder(docId)
+    if (!documentation) return null
     return (
         <>
             <div className='max-w-7xl mx-auto'>
@@ -19,31 +27,21 @@ const page = () => {
                 <Link href='/docs' className='text-sm text-muted-foreground hover:text-accent-foreground'>API</Link>
                 <Link href='/docs' className='text-sm text-muted-foreground hover:text-accent-foreground'>Все</Link>
             </nav>
-            <Separator />
             <div className='max-w-7xl w-full mx-auto h-full flex items-start pt-6'>
                 <aside className='px-6 shrink-0 w-64 h-full gap-4  flex flex-col'>
                     {
-                        fundamentals.map((item, index) => {
+                        documentation.side.map((item, index) => {
                             if (item.type === 'group') return <SideGroup key={'group-' + index} group={item} />
                             if (item.type === 'single') return <SideElement key={'single-' + index} element={item} />
                             return null
                         })
                     }
                 </aside>
-                <section className='w-full h-full px-6 flex flex-col gap-6'>
-                    <div className="w-full h-64 flex flex-col items-center justify-center gap-4">
-                        <h1 className='text-4xl font-bold text-center'>DM Family Документация</h1>
-                        <span className='text-center font-light text-lg'>
-                            Здесь вы узнаете больше о том <br />
-                            как взаимодействует <b className='font-bold'>DM Family&apos;s Frontend</b> с <b className='font-bold'>DM&nbsp;Cloud</b>
-                        </span>
-                    </div>
-                    <Separator />
-                </section>
+                { children }
                 <div className='w-64 shrink-0 h-full px-6'></div>
             </div>
         </>
     )
 }
 
-export default page
+export default layout
