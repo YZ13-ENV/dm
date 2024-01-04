@@ -1,25 +1,14 @@
 import { SideMap } from "@/types/docs";
 export const api: SideMap = [
     {
-        type: 'single',
-        id: 'api',
-        name: 'API',
-        hasArrow: true
-    },
-    {
         type: 'group',
-        id: 'api/endpoints',
-        name: 'Endpoints',
+        id: 'api/rest-api',
+        name: 'DM REST API',
         items: [
             {
                 type: 'single',
-                id: 'api/endpoints/user',
-                name: '/user'
-            },
-            {
-                type: 'single',
-                id: 'api/endpoints/notes',
-                name: '/notes'
+                id: 'api/rest-api/endpoints',
+                name: 'Endpoints'
             }
         ]
     }

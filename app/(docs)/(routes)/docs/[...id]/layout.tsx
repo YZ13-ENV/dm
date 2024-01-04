@@ -14,7 +14,7 @@ type Props = {
 const layout = ({ children, params }: Props) => {
     const docId = params.id
     const parsedDocId = parseDocId(docId)
-    const documentation = docFinder(parsedDocId.root)
+    const documentation = docFinder(parsedDocId.sideValue)
     return (
         <>
             <div className='max-w-7xl mx-auto'>
@@ -33,7 +33,7 @@ const layout = ({ children, params }: Props) => {
                     }
                 </aside>
                 { children }
-                <div className='w-64 shrink-0 h-full px-6'></div>
+                <div className='w-64 shrink-0 lg:flex hidden h-full px-6'></div>
             </div>
             <footer className="py-12 border-t bg-card">
 
