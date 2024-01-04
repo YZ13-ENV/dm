@@ -135,3 +135,9 @@
     @apply underline text-accent-foreground
   } */
 }
+
+@layer components {
+  .code-line {
+    @apply w-fit h-fit text-sm rounded-lg bg-card border px-2 py-1
+  }
+}
