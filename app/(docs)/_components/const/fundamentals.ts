@@ -34,20 +34,21 @@ export const fundamentals: SideMap = [
             },
             {
                 type: 'single',
-                id: 'fundamentals/projects/frame',
-                name: "Frame",
-                hasArrow: true
-            },
-            {
-                type: 'single',
                 id: 'fundamentals/projects/keeper',
                 name: "Keeper",
                 hasArrow: true
             },
             {
                 type: 'single',
+                id: 'fundamentals/projects/frame',
+                name: "Frame (скоро)",
+                hasArrow: true
+            },
+
+            {
+                type: 'single',
                 id: 'fundamentals/projects/calendar',
-                name: "Calendar",
+                name: "Calendar (скоро)",
                 hasArrow: true
             },
         ]

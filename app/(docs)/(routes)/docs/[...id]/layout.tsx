@@ -21,7 +21,7 @@ const layout = ({ children, params }: Props) => {
                 <Header transparent />
             </div>
             <DocsNav />
-            <div className='max-w-7xl w-full mx-auto h-full flex items-start pt-6'>
+            <div className='max-w-7xl w-full min-h-screen mx-auto h-full flex items-start pt-6'>
                 <aside className='px-6 shrink-0 w-64 h-full gap-4  flex flex-col'>
                     {
                         documentation && 
@@ -35,6 +35,9 @@ const layout = ({ children, params }: Props) => {
                 { children }
                 <div className='w-64 shrink-0 h-full px-6'></div>
             </div>
+            <footer className="py-12 border-t bg-card">
+
+            </footer>
         </>
     )
 }
