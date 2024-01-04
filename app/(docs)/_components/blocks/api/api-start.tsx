@@ -32,15 +32,19 @@ const ApiStart = () => {
             `
             .replace(/\n/gi, "&nbsp; \n")
             } />
-            <CodeBlock filename="error-response">{`
+            <div className="w-full h-fit flex flex-col gap-4">
+                <CodeBlock filename="endpoint" language="text">{'https://api.darkmaterial.space'}</CodeBlock>
+                <CodeBlock filename="error-response" showLineNumber>{`
 {
     error: {
         code: "forbidden",
         message: "Not authorized"
     }
 }
-`.trim()
-            }</CodeBlock>
+    `.trim()
+                }</CodeBlock>
+            </div>
+
         </div>
     )
 }
