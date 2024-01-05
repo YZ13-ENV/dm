@@ -16,7 +16,7 @@ const Header = ({ children, transparent=false }: Props) => {
                     <Link href='/'><DmMark /></Link>
                     <span className="text-xl md:inline hidden font-bold">DM Family</span>
                 </div>
-                <div className='flex items-center gap-4'>
+                <div className='flex items-center md:gap-4 gap-2'>
                     <FeedBack />
                     <ProjectsGrid />
                     <User />
