@@ -11,9 +11,9 @@ type Props = {
     providedId?: string
 }
 const SideGroup = ({ group, providedId }: Props) => {
-    const isInGroupId = providedId ? group.id === providedId : false
+    // const isInGroupId = providedId ? group.id === providedId : false
     const isInGroupItems =  providedId ? group.items.findIndex(item => item.id === providedId) > -1 : false
-    const isIncluded = isInGroupId || isInGroupItems
+    const isIncluded = isInGroupItems
     const [open, setOpen] = useState<boolean>(isIncluded || false)
     return (
         <div className="w-full h-fit">
