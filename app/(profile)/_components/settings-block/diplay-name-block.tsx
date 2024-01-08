@@ -22,8 +22,7 @@ const DisplayNameBlock = ({ displayName, nickname }: Props) => {
     const updateDisplayName = async() => {
         if (user && !isSame) {
             setLoading(true)
-            await updateProfile(user, { displayName: name })
-            await userAPI.byId.update(user.uid, { displayName: name })
+            await userAPI.byId.updateProfile(user.uid, { displayName: name })
             setLoading(false)
         }
     }
