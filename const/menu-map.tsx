@@ -18,7 +18,7 @@ export const menu: MenuMapProps = [
                         text: 'Документация'
                     },
                     {
-                        link: '/profile',
+                        link: '/account',
                         icon: BiCog,
                         text: 'Настройки'
                     }

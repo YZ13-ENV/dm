@@ -17,6 +17,23 @@ export const user = {
                 return null
             }
         },
+        updateProfile: async(uid: string, data: { displayName?: string, photoURL?: string }) => {
+            try {
+                const headers = new Headers()
+                const authHeader = authorizationHeader()
+                headers.append('authorization', authHeader || '')
+                const url = `${api_host}/users/${uid}`
+                const res = await fetch(url, { 
+                    method: 'POST', 
+                    headers: headers,
+                    body: JSON.stringify(data)
+                })
+                if (res.ok) return Boolean(await res.json())
+                return false
+            } catch(e) {
+                return false
+            }
+        },
         update: async(uid: string, field: object) => {
             try {
                 const headers = new Headers()
