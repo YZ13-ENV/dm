@@ -4,11 +4,10 @@ import SettingsBlock from "."
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { auth } from "@/utils/app"
-import { updateProfile } from "firebase/auth"
-import { useState } from "react"
 import { useAuthState } from "react-firebase-hooks/auth"
 import { BiLoaderAlt } from "react-icons/bi"
 import { user as userAPI } from '@/api/user'
+import { useState } from "react"
 
 type Props = {
     displayName: string
@@ -24,6 +23,7 @@ const DisplayNameBlock = ({ displayName, nickname }: Props) => {
             setLoading(true)
             await userAPI.byId.updateProfile(user.uid, { displayName: name })
             setLoading(false)
+            await user.reload()
         }
     }
     return (

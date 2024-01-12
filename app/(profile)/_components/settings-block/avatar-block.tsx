@@ -21,6 +21,7 @@ const AvatarBlock = ({ avatarURL }: Props) => {
             const url = await fileAPI.upload.file(link, file)
             if (url) {
                 await userAPI.byId.updateProfile(user.uid, { photoURL: cdn(url) })
+                await user.reload()
             }
         }
     }
