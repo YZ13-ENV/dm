@@ -22,7 +22,8 @@ export const user = {
                 const headers = new Headers()
                 const authHeader = authorizationHeader()
                 headers.append('authorization', authHeader || '')
-                const url = `${api_host}/users/${uid}`
+                headers.append('Content-Type', 'application/json')
+                const url = `${api_host}/users/uid/${uid}`
                 const res = await fetch(url, { 
                     method: 'POST', 
                     headers: headers,
@@ -39,6 +40,7 @@ export const user = {
                 const headers = new Headers()
                 const authHeader = authorizationHeader()
                 headers.append('authorization', authHeader || '')
+                headers.append('Content-Type', 'application/json')
                 const url = `${api_host}/users/claim/${uid}`
                 const res = await fetch(url, { 
                     method: 'POST', 
