@@ -1,6 +1,6 @@
 import BigHeader from '@/components/widgets/headers/big'
 import Image from 'next/image'
-import light from '@/public/light.png'
+import light from '@/public/light.webp'
 import { Suspense } from 'react'
 import AllPostsSkeleton from '@/components/skeletons/posts-all'
 import dynamic from 'next/dynamic'
@@ -17,7 +17,7 @@ const page = () => {
         <>
             <BigHeader transparent absolute />
             <div className="w-full overflow-visible relative h-[100dvh]">
-                <Image src='/light.png' className='-z-[1] object-cover' placeholder={`data:image/${light.blurDataURL}`} blurDataURL={light.blurDataURL} fill alt='light' />
+                <Image src={light} className='-z-[1] object-cover' placeholder={`data:image/${light.blurDataURL}`} blurDataURL={light.blurDataURL} fill alt='light' />
                 {/* <RemoteServerLogo  dark={config.remote.logo.dark} light={config.remote.logo.light} size={128} alt="dm-logo" /> */}
                 <main className="relative flex flex-col items-center justify-center w-full max-w-2xl mx-auto gap-4 h-full">
                     <div className="flex flex-col items-center justify-center w-full gap-4 px-4 mt-12 h-fit">

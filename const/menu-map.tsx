@@ -1,6 +1,6 @@
 import { BiCog } from 'react-icons/bi'
 import { TiDocumentText } from "react-icons/ti";
-import { MenuMapProps, projects } from 'ui'
+import { MenuMapProps } from 'ui'
 
 export const menu: MenuMapProps = [
     {
@@ -30,10 +30,6 @@ export const menu: MenuMapProps = [
         type: 'wrapper',
         className: 'h-fit w-full mt-auto',
         items: [
-            {
-                type: 'projects',
-                projects: projects
-            },
             {
                 type: 'sign-out'
             }
