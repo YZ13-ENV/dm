@@ -59,8 +59,8 @@ const syncAuth = async(session: Session, user: User | null | undefined) => {
 const domain = process.env.NODE_ENV === 'development' ? 'localhost' : '.darkmaterial.space'
 
 export const useSession = (): [Session | null, (type: Controls, uid: string) => void, User | null | undefined] => {
-  const [uid, setUid] = useCookieState('uid', { defaultValue: '', domain: domain, secure: true })
-  const [session, setSession] = useCookieState('SSN', { defaultValue: '', domain: domain, secure: true })
+  const [uid, setUid] = useCookieState('uid', { defaultValue: '', domain: domain, secure: true, sameSite: 'lax' })
+  const [session, setSession] = useCookieState('SSN', { defaultValue: '', domain: domain, secure: true, sameSite: 'lax' })
   const [user] = useAuthState(auth)
   const parsedSession = parseSession(session as string)
 
@@ -105,6 +105,7 @@ export const useSession = (): [Session | null, (type: Controls, uid: string) => 
   }
   useEffect(() => {
     if (parsedSession) {
+      syncAuth(parsedSession, user)
       if (parsedSession.activeUid) setUid(parsedSession.activeUid)
     } else {
       setUid('')
