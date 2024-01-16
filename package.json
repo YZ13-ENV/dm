@@ -35,7 +35,6 @@
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7",
     "ui": "github:yz13-env/ui",
-    "ui@latest": "link:yz13-env/ui@latest",
     "vaul": "^0.8.0"
   },
   "devDependencies": {
