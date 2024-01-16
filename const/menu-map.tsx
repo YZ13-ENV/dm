@@ -26,14 +26,4 @@ export const menu: MenuMapProps = [
             }
         ]
     },
-    {
-        type: 'wrapper',
-        className: 'h-fit w-full mt-auto',
-        items: [
-            {
-                type: 'sign-out'
-            }
-        ]
-    }
-
 ]
