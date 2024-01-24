@@ -26,7 +26,7 @@ const page = () => {
                 </main>
             </div>
             <HomeProjects />
-            <div className="w-full min-h-screen h-fit py-12">
+            <div className="w-full h-fit py-12">
                 <div className="max-w-7xl w-full h-full mx-auto px-6">
                     <StatusBar />
                     <Suspense fallback={<AllPostsSkeleton />}>
@@ -38,7 +38,6 @@ const page = () => {
                 <div className="w-full h-fit flex max-w-7xl px-6 mx-auto items-center justify-between">
                     <div className="flex items-center gap-2">
                         <DmMark size={32} />
-                        <span  className='text-xl font-semibold'>DM</span>
                     </div>
                     <div className="flex items-center gap-2">
                         <span  className='text-xl text-muted-foreground font-semibold'>by YZ13</span>

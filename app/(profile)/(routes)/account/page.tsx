@@ -1,6 +1,4 @@
-import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
-import SettingsBlock from '../../_components/settings-block'
 import { cookies } from 'next/headers'
 import { user as userAPI } from '@/api/user'
 import DisplayNameBlock from '../../_components/settings-block/diplay-name-block'
@@ -28,12 +26,11 @@ const page = async() => {
                 <h1 className='md:text-4xl text-2xl font-bold text-accent-foreground'>Настройки</h1>
             </div>
             <Separator />
-            <div className="max-w-6xl w-full mx-auto flex md:flex-row flex-col items-start gap-6 md:py-12 py-6">
+            <div className="settings-wrapper">
                 <div className="w-full md:max-w-[200px] max-w-full shrink-0 h-fit px-6">
                     <span className='font-light text-sm px-3 w-full inline-flex items-center h-9 hover:bg-muted rounded-md cursor-pointer'>Основные</span>
                 </div>
                 <div className="w-full h-full flex flex-col px-6">
-                    <Separator />
                     <NicknameBlock uid={user.uid} nickname={user.nickname || ''} />
                     <DisplayNameBlock nickname={user.nickname || user.uid} displayName={user.displayName} />
                     <EmailBlock email={user.email} />
