@@ -5,6 +5,7 @@ import FeedBack from "../../feedback"
 import Image from "next/image"
 import { cdn } from "@/helpers/cdn"
 import Nav from "../nav"
+import NotificationsWrapper from "../notifications"
 
 type Props = {
     children?: JSX.Element
@@ -22,6 +23,7 @@ const BigHeader = ({ children, absolute=false, transparent=false }: Props) => {
                 </div>
                 <div className='flex items-center gap-3'>
                     <FeedBack />
+                    <NotificationsWrapper />
                     <ProjectsGrid />
                     <User size={48} />
                 </div>
