@@ -1,12 +1,12 @@
-import { config } from '@/app.config'
-import RemoteServerLogo from './remote/remote-logo-server'
+import Image from 'next/image'
+import { cdn } from 'api'
 
 type Props = {
     size?: number
 }
 const DmMark = ({ size=32 }: Props) => {
     return (
-        <RemoteServerLogo dark={config.remote.logo.dark} light={config.remote.logo.light} size={size} alt="dm-logo" />
+        <Image src={cdn('/dm/icons/DM-dark.svg')} width={size} height={size} alt="dm-logo" />
     )
 }
 
