@@ -2,6 +2,7 @@
 import { notifications } from "@/api/notifications"
 import { Button } from "@/components/ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { useState } from "react"
 import { BiLoaderAlt } from "react-icons/bi"
 import { MdOutlineFeedback } from "react-icons/md";
@@ -25,9 +26,16 @@ const FeedBack = () => {
     }
     return (
         <Popover open={open} onOpenChange={state => setOpen(state)}>
-            <PopoverTrigger asChild>
-                <Button variant='outline' size='icon'><MdOutlineFeedback /></Button>
-            </PopoverTrigger>
+            <TooltipProvider>
+                <Tooltip>
+                    <PopoverTrigger asChild>
+                        <TooltipTrigger asChild>
+                            <Button variant='outline' size='icon'><MdOutlineFeedback /></Button>
+                        </TooltipTrigger>
+                    </PopoverTrigger>
+                    <TooltipContent>Обратная связь</TooltipContent>
+                </Tooltip>
+            </TooltipProvider>
             <PopoverContent className='min-h-[16rem] max-h-[90vh] flex flex-col gap-4 justify-between'>
                 <div className="w-full h-fit rounded-lg bg-background p-3">
                     <textarea className="w-full h-full min-h-[140px] max-h-[770px] rounded-lg outline-none text-sm resize-y bg-transparent"
