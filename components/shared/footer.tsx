@@ -9,6 +9,7 @@ const Footer = () => {
               <DmMark size={32} />
               <div className='flex items-center justify-center gap-4 flex-wrap'>
                   <Link href='/all-products' className='text-muted-foreground text-sm'>Все проекты</Link>
+                  <Link href='/team' className='text-muted-foreground text-sm'>Команда</Link>
               </div>
               <div className='flex items-center gap-2 flex-wrap'>
                   <div className="w-5 h-5 rounded-md bg-muted" />
