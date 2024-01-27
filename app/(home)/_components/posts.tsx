@@ -8,7 +8,7 @@ const LastPosts = dynamic(() => import("@/components/widgets/posts-last"), {
 
 const PostsSection = () => {
   return (
-    <div className="w-full h-fit py-12 gap-12 flex flex-col">
+    <div id="posts" className="w-full min-h-screen py-12 gap-12 flex flex-col">
       <section className="max-w-7xl mx-auto w-full px-6 flex flex-col gap-4">
         <StatusBar />
         <Suspense fallback={<LastPostsSkeleton />}>

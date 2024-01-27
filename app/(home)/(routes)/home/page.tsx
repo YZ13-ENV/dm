@@ -6,6 +6,7 @@ import Footer from '@/components/shared/footer'
 import Image from 'next/image'
 import TeamSection from '../../_components/team'
 import Line from '../../_components/line'
+import NavDock from '../../_components/nav-dock'
 
 const page = () => {
 
@@ -13,19 +14,7 @@ const page = () => {
         <>
             <BigHeader transparent absolute />
             <Hero />
-            <div className="w-full h-fit top-6 fixed">
-                <div className="w-fit h-fit p-1 z-50 rounded-full border px-4 flex items-center justify-center mx-auto bg-card">
-                    <div className="w-fit h-9 px-5 flex items-center justify-center">
-                        <span className="text-sm text-accent-foreground">Главная</span>
-                    </div>
-                    <div className="w-fit h-9 px-5 flex items-center justify-center">
-                        <span className="text-sm text-muted-foreground">Проекты</span>
-                    </div>
-                    <div className="w-fit h-9 px-5 flex items-center justify-center">
-                        <span className="text-sm text-muted-foreground">Команда</span>
-                    </div>
-                </div>
-            </div>
+            <NavDock />
             <HomeProjects />
             <Line />
             <TeamSection />

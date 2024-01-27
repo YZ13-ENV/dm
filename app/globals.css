@@ -141,7 +141,7 @@
     @apply w-fit h-full relative flex md:flex-row flex-col gap-4
   }
   .home-card {
-    @apply h-64 aspect-[4/3] border hover:border-primary transition-colors cursor-pointer rounded-lg bg-opacity-60 bg-background z-0
+    @apply relative h-64 aspect-[4/3] border hover:border-primary transition-colors cursor-pointer rounded-lg bg-opacity-60 bg-background z-0
   }
   .line-primary {
     @apply !bg-primary opacity-50

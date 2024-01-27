@@ -31,7 +31,7 @@ const TeamSection = () => {
     )
   }
   return (
-    <div className="w-full min-h-screen py-24 gap-12 flex flex-col z-10">
+    <div id="team" className="w-full min-h-screen py-24 gap-12 flex flex-col z-10">
       <section className="max-w-7xl mx-auto w-full px-6 flex flex-col gap-4">
         <h1 className='md:text-4xl text-2xl font-bold text-accent-foreground'>Команда</h1>
         {/* <span className='text-base font-light text-muted-foreground'></span> */}

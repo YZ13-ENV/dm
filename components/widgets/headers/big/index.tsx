@@ -4,16 +4,23 @@ import { ProjectsGrid } from 'ui'
 import FeedBack from "../../feedback"
 import NotificationsWrapper from "../notifications"
 import DmMark from "@/components/shared/dm-mark"
+import { cn } from '@/lib/utils'
 
 type Props = {
     children?: JSX.Element
     transparent?: boolean
     absolute?: boolean
+    className?: string
 
 }
-const BigHeader = ({ children, absolute=false, transparent=false }: Props) => {
+const BigHeader = ({ children, className='', absolute=false, transparent=false }: Props) => {
     return (
-        <header className={`w-full z-40 min-h-[64px] shrink-0 ${ absolute ? 'absolute top-0 left-0' : '' } ${ transparent ? 'bg-transparent' : 'bg-card border-b' }`}>
+        <header className={cn(
+            (absolute ? 'absolute top-0 left-0' : ''),
+            (transparent ? 'bg-transparent' : 'bg-card border-b'),
+            "w-full z-40 min-h-[64px] shrink-0",
+            className
+        )}>
             <div className="w-full h-fit shrink-0 flex items-center justify-between px-6 pt-6">
                 <div className='flex items-center md:gap-4 gap-2'>
                     <Link href='/'><DmMark size={48} /></Link>
