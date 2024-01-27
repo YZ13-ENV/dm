@@ -137,6 +137,12 @@
 }
 
 @layer components {
+  .home-card-wrapper {
+    @apply w-fit h-full relative flex md:flex-row flex-col gap-4
+  }
+  .line-primary {
+    @apply !bg-primary opacity-50
+  }
   .code-line {
     @apply w-fit h-fit text-sm rounded-lg bg-card border px-2 py-1
   }

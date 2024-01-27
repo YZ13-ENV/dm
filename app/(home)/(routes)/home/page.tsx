@@ -10,7 +10,7 @@ const page = () => {
 
     return (
         <>
-            <BigHeader transparent absolute />
+            <BigHeader transparent />
             <Hero />
             <HomeProjects />
             <div className='relative'>
