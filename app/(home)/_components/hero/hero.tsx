@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React from "react";
-import Line from "./line";
+import Line from "../line";
 import { BiRightArrowAlt } from "react-icons/bi";
 import { cdn } from "api";
 import Link from "next/link";
+import HeroCard from "./hero-card";
 
 const Hero = () => {
 
@@ -40,31 +41,19 @@ const Hero = () => {
           <div className="home-card-wrapper">
             <Line orientation="vertical" className="absolute -right-4 top-0 h-[30rem]" />
             <Line orientation="vertical" className="absolute -left-4 bottom-0 h-[30rem]" />
-
-            <div className="home-card group disabled-home-card">
-              {/* <span className="text-2xl">Скоро</span> */}
-              <div className="absolute bottom-0 left-0 flex items-center justify-between w-full p-4 h-fit">
-                <div className="flex flex-col w-fit">
-                  <span className="text-base text-muted-foreground">Производительность</span>
-                  <span className="text-base text-muted-foreground">Начните планировать и повысьте производительность</span>
-                </div>
-                <BiRightArrowAlt size={24} className='transition-colors text-muted-foreground' />
-              </div>
-            </div>
-
-            <div className="overflow-hidden home-card group">
-              <Link href='https://frame.darkmaterial.space' className="absolute top-0 left-0 z-10 w-full h-full" />
+            <HeroCard
+              disabled
+              name="Производительность"
+              description="Начните планировать и повысьте производительность"
+            ></HeroCard>
+            <HeroCard
+              name="Творчество"
+              description="Создайте портфолио загрузив работы в профиль"
+              link="https://frame.darkmaterial.space"
+            >
               <Image src='/grid.svg' fill alt='grid' className="object-cover scale-150 opacity-50" />
               <Image src={cdn('dm/icons/frame-dark.svg')} width={64} height={64} alt='logo' className="z-10 self-center" />
-              <div className="absolute bottom-0 left-0 flex items-center justify-between w-full p-4 h-fit">
-                <div className="flex flex-col w-fit">
-                  <span className="text-base font-medium">Творчество</span>
-                  <span className="text-sm text-muted-foreground">Создайте портфолио загрузив работы в профиль</span>
-                </div>
-                <BiRightArrowAlt size={24} className='transition-colors text-muted-foreground group-hover:text-accent-foreground' />
-              </div>
-            </div>
-
+            </HeroCard>
           </div>
         </div>
       </main>
