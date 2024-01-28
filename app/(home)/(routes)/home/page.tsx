@@ -4,9 +4,9 @@ import PostsSection from '../../_components/posts'
 import Hero from '../../_components/hero'
 import Footer from '@/components/shared/footer'
 import Image from 'next/image'
-import TeamSection from '../../_components/team'
+import TeamSection from '../../_components/team/team'
 import Line from '../../_components/line'
-import NavDock from '../../_components/nav-dock'
+// import NavDock from '../../_components/nav-dock'
 
 const page = () => {
 
@@ -14,7 +14,7 @@ const page = () => {
         <>
             <BigHeader transparent absolute />
             <Hero />
-            <NavDock />
+            {/* <NavDock /> */}
             <HomeProjects />
             <Line />
             <TeamSection />
