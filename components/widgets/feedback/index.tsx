@@ -30,7 +30,7 @@ const FeedBack = () => {
                 <Tooltip>
                     <PopoverTrigger asChild>
                         <TooltipTrigger asChild>
-                            <Button variant='outline' size='icon'><MdOutlineFeedback /></Button>
+                            <Button variant='outline' className='rounded-full' size='icon'><MdOutlineFeedback /></Button>
                         </TooltipTrigger>
                     </PopoverTrigger>
                     <TooltipContent>Обратная связь</TooltipContent>

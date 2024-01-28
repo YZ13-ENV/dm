@@ -8,7 +8,7 @@ import { BiChevronRight } from "react-icons/bi";
 const HomeProjects = () => {
 
     return (
-        <div className="w-full h-fit py-12 gap-12 flex flex-col z-10">
+        <div id="projects" className="w-full min-h-screen py-36 gap-12 flex flex-col z-10">
             <section className="max-w-7xl mx-auto w-full px-6 flex flex-col gap-4">
                 <div className="w-full h-fit flex items-center justify-between">
                     <h1 className='md:text-4xl text-2xl font-bold text-accent-foreground'>Сервисы DM</h1>
