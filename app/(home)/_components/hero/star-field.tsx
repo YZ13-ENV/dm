@@ -25,7 +25,7 @@ const StarField = ({ starsCount=50 }: Props) => {
   return (
     <div ref={ref} className={cn(
       visible ? 'opacity-100' : 'opacity-0',
-      "absolute w-full h-full"
+      "absolute w-full h-full z-[-1]"
     )}>
       {
         stars.map(
