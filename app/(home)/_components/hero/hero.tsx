@@ -10,7 +10,7 @@ const Hero = () => {
   const HeroContent = () => {
     return (
       <main style={{ minHeight: 'calc(100dvh - 96px - (18rem / 2))' }}
-      className="w-full h-full max-w-screen-2xl mx-auto md:px-28 px-6 flex flex-col items-center justify-center gap-6 z-[-1]">
+      className="w-full h-full max-w-screen-2xl mx-auto md:px-28 px-6 flex flex-col items-center justify-center gap-6">
         <div className="flex flex-col items-center justify-center w-full gap-4 py-2 h-fit">
           <Image src='/dm-star-dark.svg' width={96} height={96} alt='dm-star-logo' />
           <h1 className="text-5xl">Darkmaterial</h1>
