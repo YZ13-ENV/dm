@@ -26,5 +26,6 @@ export const format = {
         }
         if (onlyNumbers) return parseInt(result)
         return result
-    }
+    },
+    randomNum: (min: number=0, max: number=100) => Math.floor(Math.random() * (max - min + 1) + min)
 }

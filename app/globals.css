@@ -186,3 +186,12 @@
     @apply w-full grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-2 auto-rows-auto gap-2
   }
 }
+
+@keyframes star-pulse {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: .5;
+  }
+}

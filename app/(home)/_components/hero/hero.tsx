@@ -1,34 +1,18 @@
 import Image from "next/image";
 import React from "react";
 import Line from "../line";
-import { BiRightArrowAlt } from "react-icons/bi";
 import { cdn } from "api";
-import Link from "next/link";
 import HeroCard from "./hero-card";
+import StarField from "./star-field";
 
 const Hero = () => {
 
-  return (
-    <div id="hero" style={{ minHeight: 'calc(100dvh - 96px)' }} className="w-full overflow-visible mt-[96px] relative">
-      <Image
-      className="z-[-1] -top-[72px] absolute object-cover"
-      src='/star-field-7.png'
-      fill
-      alt="star-field"
-      />
-      {/* <div className="w-full "></div> */}
-      {/* <Image
-        src={light}
-        className="-z-[1] object-cover"
-        placeholder={`data:image/${light.blurDataURL}`}
-        blurDataURL={light.blurDataURL}
-        fill
-        alt="light"
-      /> */}
+  const HeroContent = () => {
+    return (
       <main style={{ minHeight: 'calc(100dvh - 96px - (18rem / 2))' }}
       className="w-full h-full max-w-screen-2xl mx-auto md:px-28 px-6 flex flex-col items-center justify-center gap-6 z-[-1]">
         <div className="flex flex-col items-center justify-center w-full gap-4 py-2 h-fit">
-          <Image src='/dm-star-dark.svg' width={64} height={64} alt='dm-star-logo' />
+          <Image src='/dm-star-dark.svg' width={96} height={96} alt='dm-star-logo' />
           <h1 className="text-5xl">Darkmaterial</h1>
           <span className="text-lg text-center text-muted-foreground">
             DM помогает расширить возможности при работе, и поиске вдохновения, <br />
@@ -57,6 +41,12 @@ const Hero = () => {
           </div>
         </div>
       </main>
+    )
+  }
+  return (
+    <div id="hero" className="w-full h-screen overflow-visible flex flex-col items-center justify-center relative">
+      <StarField starsCount={350} />
+      <HeroContent />
       <div className="w-full h-72 absolute bottom-0 flex items-end z-[-1]">
         <Image src='/bottom-light.png' fill alt='light-image' />
         <Line variant="primary" />
