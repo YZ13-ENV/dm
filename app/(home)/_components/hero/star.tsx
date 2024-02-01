@@ -7,7 +7,10 @@ type Props = {
   index: number
 }
 const Star = ({ index, height, width }: Props) => {
+  const delay = format.randomNum(0, 10)
   const brightLevel = format.randomNum(0, 2)
+  const duration = format.randomNum(1, 3)
+  const size = format.randomNum(1, 3)
   const levels = [
     { min: .25, max: .5 },
     { min: .5, max: .7 },
@@ -15,8 +18,9 @@ const Star = ({ index, height, width }: Props) => {
   ]
   return (
     <motion.div initial={{ opacity: levels[brightLevel].min }} animate={{ opacity: levels[brightLevel].max }}
-    transition={{ repeat: Infinity, repeatType: 'mirror', duration: 2.5 }}
+    transition={{ repeat: Infinity, repeatType: 'mirror', duration: duration, delay: delay }}
     key={'star-' + index} style={{
+      width: `${size}px`, height: `${size}px`,
       top: format.randomNum(0 + 10, height - 10),
       left: format.randomNum(0 + 10, width - 10)
     }}

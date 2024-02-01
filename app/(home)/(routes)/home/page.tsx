@@ -19,14 +19,14 @@ const page = () => {
                 <NavDock />
             }
             <div className="w-full h-fit relative">
-                <StarField starsCount={350} />
+                <StarField starsCount={50} />
                 <HomeProjects />
                 <Line />
                 <TeamSection />
             </div>
             <Line variant="primary" />
             <div className='relative w-full min-h-screen'>
-                <StarField starsCount={350} />
+                <StarField starsCount={150} />
                 <PostsSection />
                 <Footer />
             </div>
