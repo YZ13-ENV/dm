@@ -3,10 +3,10 @@ import HomeProjects from '../../_components/home-projects'
 import PostsSection from '../../_components/posts'
 import Hero from '../../_components/hero/hero'
 import Footer from '@/components/shared/footer'
-import Image from 'next/image'
 import TeamSection from '../../_components/team/team'
 import Line from '../../_components/line'
 import NavDock from '../../_components/nav-dock'
+import StarField from '../../_components/hero/star-field'
 
 const page = () => {
 
@@ -14,18 +14,21 @@ const page = () => {
         <>
             <BigHeader transparent absolute />
             <Hero />
-            <NavDock />
-            <HomeProjects />
-            <Line />
-            <TeamSection />
+            {
+                process.env.NODE_ENV !== 'development' &&
+                <NavDock />
+            }
+            <div className="w-full h-fit relative">
+                <StarField starsCount={350} />
+                <HomeProjects />
+                <Line />
+                <TeamSection />
+            </div>
             <Line variant="primary" />
-            <div className='relative'>
+            <div className='relative w-full min-h-screen'>
+                <StarField starsCount={350} />
                 <PostsSection />
                 <Footer />
-                <div className="w-full absolute bottom-0 left-0 h-full z-[-1]">
-                    <div className="w-full absolute z-[-2] h-full bg-gradient-to-t from-background to-transparent" />
-                    <Image fill src='/star-field-7.png' alt='grid-on-bottom' />
-                </div>
             </div>
         </>
     )

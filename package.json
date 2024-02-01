@@ -5,6 +5,7 @@
   "_comment": "script prepublish run next build, after successful build run vercel that build preview on vercel and after run production build on vercel",
   "scripts": {
     "prepublish": "pnpm build && vercel && vercel --prod",
+    "postinstall": "pnpm update ui api hooks",
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
@@ -26,6 +27,7 @@
     "clsx": "^2.0.0",
     "critters": "^0.0.20",
     "firebase": "^10.7.1",
+    "framer-motion": "^11.0.3",
     "jsonwebtoken": "8.5.1",
     "luxon": "^3.4.4",
     "next": "14.0.4",
