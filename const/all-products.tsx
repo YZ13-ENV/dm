@@ -21,8 +21,8 @@ export type ProductsPage = ProductSection[];
 const dm_app: Product = {
   id: format.generateId(6) as string,
   icon: <TbBrandAppgallery size={18} />,
-  title: "DM",
-  description: "Приложение для управления аккаунтом DM Family",
+  title: "Darkmaterial",
+  description: "Приложение для управления аккаунтом Darkmaterial",
   link: "/home",
 };
 const frame_app: Product = {
