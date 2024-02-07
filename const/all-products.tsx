@@ -57,7 +57,6 @@ const team_app: Product = {
   id: format.generateId(6) as string,
   icon: <TbBrandAppgallery size={18} />,
   title: "Команды",
-  disabled: true,
   description: "Создайте команду и публикуйте контент от лица команды",
   link: "https://team.darkmaterial.space",
 };
