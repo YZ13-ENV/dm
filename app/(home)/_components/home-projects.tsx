@@ -4,7 +4,11 @@ import { all_products_page } from "@/const/all-products";
 import Link from "next/link";
 import { BiChevronRight } from "react-icons/bi";
 
-const HomeProjects = () => {
+type Props = {
+  hideTitle?: boolean
+  hideShowAll?: boolean
+}
+const HomeProjects = ({ hideTitle=true, hideShowAll=false }: Props) => {
   return (
     <div
       id="projects"
@@ -15,11 +19,15 @@ const HomeProjects = () => {
           <h1 className="md:text-4xl text-2xl font-bold text-accent-foreground">
             Сервисы Darkmaterial
           </h1>
-          <Button variant="ghost" className="gap-2" asChild>
-            <Link href="/all-products">
-              Посмотреть все <BiChevronRight />
-            </Link>
-          </Button>
+          {
+            hideShowAll
+            ? <div />
+            : <Button variant="ghost" className="gap-2" asChild>
+              <Link href="/all-products">
+                Посмотреть все <BiChevronRight />
+              </Link>
+            </Button>
+          }
         </div>
         <span className="text-base font-light text-muted-foreground">
           Вы можете воспользоваться приложениями без аккаунта Darkmaterial, но
@@ -28,13 +36,15 @@ const HomeProjects = () => {
         </span>
       </section>
       <div className="max-w-7xl w-full mx-auto px-6 gap-6 h-full">
-        {all_products_page.map((section) => (
-          <ProductsSection
-            key={section.sectionId}
-            section={section}
-            hideTitle
-          />
-        ))}
+        {
+          all_products_page.map((section) => (
+            <ProductsSection
+              key={section.sectionId}
+              section={section}
+              hideTitle={hideTitle}
+            />
+          ))
+        }
       </div>
     </div>
   );
