@@ -10,6 +10,11 @@ const Nav = () => {
             Все проекты
           </NavigationMenuLink>
         </NavigationMenuItem>
+        <NavigationMenuItem asChild>
+          <NavigationMenuLink href="/team" className={navigationMenuTriggerStyle()}>
+            Команда
+          </NavigationMenuLink>
+        </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>
   )

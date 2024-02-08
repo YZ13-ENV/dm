@@ -71,7 +71,7 @@ const docs_app: Product = {
 const plus_app: Product = {
   id: format.generateId(6) as string,
   icon: <TbBrandAppgallery size={18} />,
-  title: "DM Plus",
+  title: "Darkmaterial Plus",
   description: 'Сервис для управления подпиской "Плюс"',
   link: "https://plus.darkmaterial.space",
 };

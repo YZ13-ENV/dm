@@ -1,16 +1,16 @@
 import Image from "next/image";
 import React from "react";
 import Line from "../line";
-import { cdn } from "api";
 import HeroCard from "./hero-card";
 import StarField from "./star-field";
+import FrameCard from "../app-card/frame";
 
 const Hero = () => {
   const HeroContent = () => {
     return (
       <main
         style={{ minHeight: "calc(100dvh - 96px - (18rem / 2))" }}
-        className="w-full h-full max-w-screen-2xl mx-auto md:px-28 px-6 flex flex-col items-center justify-center gap-6"
+        className="flex flex-col items-center justify-center w-full h-full gap-6 px-6 mx-auto max-w-screen-2xl md:px-28"
       >
         <div className="flex flex-col items-center justify-center w-full gap-4 py-2 h-fit">
           <Image
@@ -44,25 +44,7 @@ const Hero = () => {
               name="Производительность"
               description="Начните планировать и повысьте производительность"
             ></HeroCard>
-            <HeroCard
-              name="Творчество"
-              description="Создайте портфолио загрузив работы в профиль"
-              link="https://frame.darkmaterial.space"
-            >
-              <Image
-                src="/grid.svg"
-                fill
-                alt="grid"
-                className="object-cover scale-150 opacity-50"
-              />
-              <Image
-                src={cdn("dm/icons/frame-dark.svg")}
-                width={64}
-                height={64}
-                alt="logo"
-                className="z-10 self-center"
-              />
-            </HeroCard>
+            <FrameCard />
           </div>
         </div>
       </main>
@@ -71,7 +53,7 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className="w-full h-screen overflow-visible flex flex-col items-center justify-center relative"
+      className="relative flex flex-col items-center justify-center w-full h-screen overflow-visible"
     >
       <StarField starsCount={350} />
       <HeroContent />

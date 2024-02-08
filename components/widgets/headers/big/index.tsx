@@ -1,19 +1,19 @@
 import Link from "next/link"
-import User from '../user-circle'
-import { ProjectsGrid } from 'ui'
-import FeedBack from "../../feedback"
-import NotificationsWrapper from "../notifications"
 import DmMark from "@/components/shared/dm-mark"
 import { cn } from '@/lib/utils'
-
+import dynamic from "next/dynamic"
+const UserSection = dynamic(() => import("../user-section"), {
+    ssr: false
+})
 type Props = {
     children?: JSX.Element
+    className?: string
+    hideLogo?: boolean
     transparent?: boolean
     absolute?: boolean
-    className?: string
 
 }
-const BigHeader = ({ children, className='', absolute=false, transparent=false }: Props) => {
+const BigHeader = ({ children, className='', hideLogo=false, absolute=false, transparent=false }: Props) => {
     return (
         <header className={cn(
             (absolute ? 'absolute top-0 left-0' : ''),
@@ -21,17 +21,16 @@ const BigHeader = ({ children, className='', absolute=false, transparent=false }
             "w-full z-40 min-h-[64px] shrink-0",
             className
         )}>
-            <div className="w-full h-fit shrink-0 flex items-center justify-between px-6 pt-6">
-                <div className='flex items-center md:gap-4 gap-2'>
-                    <Link href='/'><DmMark size={48} /></Link>
+            <div className="flex items-center justify-between w-full px-6 pt-6 h-fit shrink-0">
+                <div className='flex items-center gap-2 md:gap-4'>
+                    {
+                        !hideLogo
+                        ? <Link href='/'><DmMark size={48} /></Link>
+                        : <div className='w-12 aspect-square' />
+                    }
                     {/* <Nav /> */}
                 </div>
-                <div className='flex items-center gap-3'>
-                    <FeedBack />
-                    <NotificationsWrapper />
-                    <ProjectsGrid />
-                    <User size={48} />
-                </div>
+                <UserSection />
             </div>
             {
                 children &&

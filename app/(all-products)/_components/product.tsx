@@ -13,7 +13,7 @@ const ProductCard = ({ product }: Props) => {
         { product.icon }
         <span className="textClassName">{product.title}</span>
       </div>
-      <span className="text-muted-foreground text-sm">{product.description}</span>
+      <span className="text-muted-foreground font-light text-sm">{product.description}</span>
     </div>
   )
 }

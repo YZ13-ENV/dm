@@ -161,6 +161,11 @@
     }
 
   }
+  .no-scrollbar::-webkit-scrollbar {
+    width: 0rem;
+    height: 0rem;
+    cursor: pointer;
+  }
   .home-card-wrapper {
     @apply w-fit h-full relative flex md:flex-row flex-col gap-4
   }

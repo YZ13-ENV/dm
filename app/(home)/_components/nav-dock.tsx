@@ -41,7 +41,7 @@ const NavDock = () => {
     <div ref={ref} style={{ left: `calc(50% - (${width}px / 2))`, opacity: visible ? 1 : 0 }}
     className={cn(
       selectedSection === 'posts' ? 'bottom-16' : 'bottom-6',
-      "w-fit mx-auto fixed h-fit p-1 z-50 rounded-full border px-4 flex items-center justify-center bg-card transition-all"
+      "w-fit mx-auto fixed h-fit p-1 z-50 rounded-full border px-4 backdrop-blur flex items-center justify-center bg-gradient-to-r from-transparent via-card to-transparent transition-all"
     )}>
         <div className="w-fit h-9 px-5 flex items-center justify-center">
             <span onClick={() => scrollTo("hero")}
