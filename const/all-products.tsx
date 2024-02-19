@@ -75,7 +75,13 @@ const plus_app: Product = {
   description: 'Сервис для управления подпиской "Плюс"',
   link: "https://plus.darkmaterial.space",
 };
-
+const weecode_play_app: Product = {
+  id: format.generateId(6) as string,
+  icon: <TbBrandAppgallery size={18} />,
+  title: "Weecode Play",
+  description: "Онлайн редактор кода с возможностью просмотра результата на основе HTML",
+  link: "https://play.darkmaterial.space"
+}
 const apps_section: ProductSection = {
   sectionId: format.generateId(12) as string,
   title: "Приложения",
@@ -85,6 +91,7 @@ const apps_section: ProductSection = {
     yz13_app,
     keeper_app,
     calendar_app,
+    weecode_play_app,
     plus_app,
     team_app,
     docs_app,
