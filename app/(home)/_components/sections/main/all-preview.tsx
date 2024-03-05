@@ -1,4 +1,5 @@
 import { default_api } from "@/api/default"
+import { unstable_noStore } from "next/cache"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { BiRightArrowAlt } from "react-icons/bi"
@@ -7,6 +8,7 @@ const DynamicList = dynamic(() => import("@/app/(projects)/_components/app-previ
 })
 
 const AllPreview = async () => {
+  unstable_noStore()
   const projects = await default_api.all()
   return (
     <>

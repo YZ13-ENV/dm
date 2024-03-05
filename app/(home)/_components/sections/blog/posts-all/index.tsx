@@ -1,10 +1,12 @@
 import { Post, blog } from "api"
+import { unstable_noStore } from "next/cache"
 import PostCard from "./post-card"
 
 type Props = {
     category?: Post['category']
 }
 const AllPosts = async ({ category = 'all' }: Props) => {
+    unstable_noStore()
     const { data } = await blog.getAll(category)
     if (data && data.length === 0) return (
         <div className='w-full h-full flex items-center justify-center'>
