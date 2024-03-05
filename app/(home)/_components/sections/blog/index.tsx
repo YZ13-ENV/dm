@@ -1,5 +1,10 @@
+import AllPostsSkeleton from "@/components/skeletons/posts-all"
+import dynamic from "next/dynamic"
 import Link from "next/link"
-import AllPosts from "./posts-all"
+import { Suspense } from "react"
+const AllPosts = dynamic(() => import("./posts-all"), {
+  loading: () => <AllPostsSkeleton />
+})
 
 const BlogSection = () => {
   return (
@@ -14,7 +19,9 @@ const BlogSection = () => {
         </div>
       </div>
       <div className="mx-auto lg:max-w-5xl max-w-2xl px-6">
-        <AllPosts />
+        <Suspense fallback={<AllPostsSkeleton />}>
+          <AllPosts />
+        </Suspense>
       </div>
     </section>
   )

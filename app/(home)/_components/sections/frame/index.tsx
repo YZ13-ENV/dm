@@ -1,10 +1,13 @@
-import { bum } from "api"
+import dynamic from "next/dynamic"
 import Image from "next/image"
 import Link from "next/link"
-import ShotCard from "./shot-card"
+import { Suspense } from "react"
+import FrameGridSkeleton from "./frame-grid"
+const FrameGrid = dynamic(() => import("./grid"), {
+  loading: () => <FrameGridSkeleton />
+})
 
 const FrameSection = async () => {
-  const { data } = await bum.shots.all('new')
   return (
     <section className="w-full h-fit py-6">
       <div className="lg:max-w-5xl max-w-2xl mx-auto w-full p-6 flex items-center gap-2">
@@ -16,12 +19,9 @@ const FrameSection = async () => {
           </Link>
         </div>
       </div>
-      <div className="lg:max-w-5xl max-w-2xl mx-auto w-full px-6 grid shots-grid auto-rows-auto gap-4">
-        {
-          data
-            .map(shot => <ShotCard key={shot.doc_id} shot={shot} enableOutline />)
-        }
-      </div>
+      <Suspense fallback={<FrameGridSkeleton />}>
+        <FrameGrid />
+      </Suspense>
     </section>
   )
 }
