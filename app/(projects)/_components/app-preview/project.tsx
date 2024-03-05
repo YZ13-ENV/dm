@@ -16,7 +16,14 @@ const Project = ({ project }: Props) => {
       }
       <div className="w-full flex flex-col items-center justify-center">
         <span className="text-base text-center line-clamp-1 capitalize">{project.name}</span>
-        <Link href="/" className="text-muted-foreground text-xs gap-1 transition-colors hover:text-accent-foreground inline-flex items-center">Перейти <BiRightArrowAlt size={14} /></Link>
+        {
+          project.link &&
+          <Link
+            href={project.link}
+            className="text-muted-foreground text-xs gap-1 transition-colors hover:text-accent-foreground inline-flex items-center">
+            Перейти <BiRightArrowAlt size={14} />
+          </Link>
+        }
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import Image from "next/image"
-import Bar from "../../bar"
 import AllPreview from "./all-preview"
+import SearchWrapper from "./search-wrapper"
 
 const MainSection = () => {
   return (
@@ -16,7 +16,7 @@ const MainSection = () => {
       </div>
       <span className="max-w-2xl my-6 text-sm text-center text-muted-foreground">Добро пожаловать, в Darkmaterial, надеемся вам тут понравится</span>
       <div className="lg:max-w-5xl max-w-2xl w-full mx-auto px-6">
-        <Bar />
+        <SearchWrapper />
         {/* <Input placeholder="Поиск по работам" className="h-14 text-lg rounded-2xl" /> */}
       </div>
       {/* <span className="text-xs text-muted-foreground">Перед началом поиска вас перенаправят в приложение Frame</span> */}

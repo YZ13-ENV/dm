@@ -9,7 +9,7 @@ const page = async () => {
   return (
     <>
       <header className="max-w-4xl mx-auto h-16 w-full px-6 flex items-center justify-between">
-        <Link href='/'>
+        <Link href='/home'>
           <Image src="/dm-star-dark.svg" width={32} height={32} alt='app-logo' />
         </Link>
         <ProjectsGrid />

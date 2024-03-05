@@ -1,7 +1,7 @@
-import dynamic from "next/dynamic";
-import HeaderSkeleton from "@/components/skeletons/header";
-import TeamSection from "@/app/(home)/_components/team/team";
+import TeamSection from "@/app/(home)/_components/sections/team";
 import Footer from "@/components/shared/footer";
+import HeaderSkeleton from "@/components/skeletons/header";
+import dynamic from "next/dynamic";
 const Header = dynamic(() => import("@/components/widgets/headers/default"), {
   ssr: false,
   loading: () => <HeaderSkeleton transparent absolute />

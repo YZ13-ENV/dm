@@ -4,7 +4,10 @@ import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import { useState } from "react"
 
-const Bar = () => {
+type Props = {
+  onQuery?: (query: string) => void
+}
+const Bar = ({ onQuery }: Props) => {
   const [focused, setFocused] = useState<boolean>(false)
   const [text, setText] = useState<string>('')
   return (
@@ -15,6 +18,7 @@ const Bar = () => {
       <Input
         value={text}
         onChange={e => setText(e.target.value)}
+        onKeyUp={e => onQuery && e.key === "Enter" && onQuery(text)}
         onBlur={() => setFocused(false)}
         onFocus={() => setFocused(true)}
         placeholder="Поиск по работам"
@@ -23,7 +27,7 @@ const Bar = () => {
       <div className="h-full px-1.5 flex items-center justify-end">
         {
           text.length > 2 &&
-          <Button size='lg' className="text-base rounded-xl">Поиск</Button>
+          <Button disabled={!onQuery} onClick={() => onQuery && onQuery(text)} size='lg' className="text-base rounded-xl">Поиск</Button>
         }
       </div>
     </div>

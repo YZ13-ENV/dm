@@ -11,6 +11,7 @@ export type Project = {
     tablet: boolean;
     mobile: boolean;
   };
+  link?: string;
   description?: string;
   updateAt?: number;
   theme?: {
@@ -26,6 +27,7 @@ export type ProjectScratch = {
     tablet: boolean;
     mobile: boolean;
   };
+  link?: string;
   description?: string;
 };
 export type DocProject = { doc_id: string } & Project;
