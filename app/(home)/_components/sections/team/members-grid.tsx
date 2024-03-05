@@ -1,9 +1,11 @@
 import TeamMemberCardSkeleton from "@/components/skeletons/member-card"
 import { team } from "api"
+import { unstable_noStore } from "next/cache"
 import { Suspense } from "react"
 import TeamMemberCard from "./member-card"
 
 const MembersGrid = async () => {
+  unstable_noStore()
   const team_data = await team.get('darkmaterial')
   const members = team_data ? [team_data.founder, ...team_data.members] : []
   return (
