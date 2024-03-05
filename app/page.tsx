@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
 type Props = {
   searchParams: {
@@ -7,5 +7,5 @@ type Props = {
 }
 export default function Home({ searchParams }: Props) {
   const token = searchParams.token
-  return redirect(`/home${token ? `?token=${token}` : ''}`)
+  return permanentRedirect(`/home${token ? `?token=${token}` : ''}`)
 }

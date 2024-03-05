@@ -1,41 +1,34 @@
-import HomeProjects from '../../_components/home-projects'
-import PostsSection from '../../_components/posts'
-import Hero from '../../_components/hero/hero'
-import Footer from '@/components/shared/footer'
-import TeamSection from '../../_components/team/team'
-import Line from '../../_components/line'
-import NavDock from '../../_components/nav-dock'
-import StarField from '../../_components/hero/star-field'
-import HeaderSkeleton from "@/components/skeletons/big-header";
+import BlogSection from "@/app/(home)/_components/sections/blog";
+import FrameSection from "@/app/(home)/_components/sections/frame";
+import MainSection from "@/app/(home)/_components/sections/main";
+import TeamSection from "@/app/(home)/_components/sections/team";
 import dynamic from "next/dynamic";
-const Header = dynamic(() => import("@/components/widgets/headers/big"), {
+const UserSection = dynamic(() => import("@/components/widgets/headers/user-section"), {
   ssr: false,
-  loading: () => <HeaderSkeleton absolute />
+  loading: () => <div className="w-fit h-fit flex items-center gap-2">
+    <div className="w-9 rounded-full aspect-square bg-muted" />
+    <div className="w-9 rounded-full aspect-square bg-muted" />
+    <div className="w-9 rounded-full aspect-square bg-muted" />
+  </div>
 });
-const page = () => {
 
-    return (
-        <>
-            <Header transparent absolute hideLogo />
-            <Hero />
-            {
-                process.env.NODE_ENV !== 'development' &&
-                <NavDock />
-            }
-            <div className="relative w-full h-fit">
-                <StarField starsCount={50} />
-                <HomeProjects />
-                <Line />
-                <TeamSection />
-            </div>
-            <Line variant="primary" />
-            <div className='relative w-full min-h-screen'>
-                <StarField starsCount={150} />
-                <PostsSection />
-                <Footer />
-            </div>
-        </>
-    )
+export default function Home() {
+  return (
+    <>
+      <header className="h-16 w-full px-6 flex items-center justify-end">
+        {/* <Link href='/' className="inline-flex items-center gap-2"> */}
+        {/* <Image src="/dm-star-dark.svg" width={44} height={44} alt='app-logo' /> */}
+        {/* </Link> */}
+        <div className="flex items-center gap-2">
+          <UserSection />
+        </div>
+      </header>
+      <main style={{ minHeight: "calc(100dvh - 64px)" }} className="w-full">
+        <MainSection />
+        <FrameSection />
+        <BlogSection />
+        <TeamSection />
+      </main>
+    </>
+  )
 }
-
-export default page
