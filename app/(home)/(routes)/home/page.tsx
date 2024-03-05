@@ -1,8 +1,5 @@
-import BlogSection from "@/app/(home)/_components/sections/blog";
-import FrameSection from "@/app/(home)/_components/sections/frame";
-import MainSection from "@/app/(home)/_components/sections/main";
-import TeamSection from "@/app/(home)/_components/sections/team";
 import dynamic from "next/dynamic";
+import MainSection from "../../_components/sections/main";
 const UserSection = dynamic(() => import("@/components/widgets/headers/user-section"), {
   ssr: false,
   loading: () => <div className="w-fit h-fit flex items-center gap-2">
@@ -25,9 +22,9 @@ export default function Home() {
       </header>
       <main style={{ minHeight: "calc(100dvh - 64px)" }} className="w-full">
         <MainSection />
-        <FrameSection />
-        <BlogSection />
-        <TeamSection />
+        {/* <FrameSection /> */}
+        {/* <BlogSection /> */}
+        {/* <TeamSection /> */}
       </main>
     </>
   )

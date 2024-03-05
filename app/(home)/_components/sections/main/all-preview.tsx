@@ -1,7 +1,10 @@
 import { default_api } from "@/api/default"
-import DynamicList from "@/app/(projects)/_components/app-preview/dynamic-list"
+import dynamic from "next/dynamic"
 import Link from "next/link"
 import { BiRightArrowAlt } from "react-icons/bi"
+const DynamicList = dynamic(() => import("@/app/(projects)/_components/app-preview/dynamic-list"), {
+  ssr: false
+})
 
 const AllPreview = async () => {
   const projects = await default_api.all()

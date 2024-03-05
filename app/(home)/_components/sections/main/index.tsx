@@ -1,6 +1,11 @@
+import AppPreviewSkeleton from "@/components/skeletons/app-preview"
+import dynamic from "next/dynamic"
 import Image from "next/image"
-import AllPreview from "./all-preview"
+import { Suspense } from "react"
 import SearchWrapper from "./search-wrapper"
+const AllPreview = dynamic(() => import("./all-preview"), {
+  loading: () => <AppPreviewSkeleton />
+})
 
 const MainSection = () => {
   return (
@@ -14,13 +19,13 @@ const MainSection = () => {
           Material
         </h1>
       </div>
-      <span className="max-w-2xl my-6 text-sm text-center text-muted-foreground">Добро пожаловать, в Darkmaterial, надеемся вам тут понравится</span>
+      <span className="max-w-2xl my-6 text-sm text-center text-muted-foreground">Добро пожаловать в Darkmaterial, надеемся вам тут понравится</span>
       <div className="lg:max-w-5xl max-w-2xl w-full mx-auto px-6">
         <SearchWrapper />
-        {/* <Input placeholder="Поиск по работам" className="h-14 text-lg rounded-2xl" /> */}
       </div>
-      {/* <span className="text-xs text-muted-foreground">Перед началом поиска вас перенаправят в приложение Frame</span> */}
-      <AllPreview />
+      <Suspense fallback={<AppPreviewSkeleton />}>
+        <AllPreview />
+      </Suspense>
     </section>
   )
 }

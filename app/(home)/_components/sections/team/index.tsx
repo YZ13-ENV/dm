@@ -1,11 +1,13 @@
-import { team } from 'api'
+import TeamSkeleton from '@/components/skeletons/team'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { BiChevronRight } from 'react-icons/bi'
-import TeamMemberCard from './member-card'
+const MembersGrid = dynamic(() => import('./members-grid'), {
+  loading: () => <TeamSkeleton />
+})
 
 const TeamSection = async () => {
-  const team_data = await team.get('darkmaterial')
-  const members = team_data ? [team_data.founder, ...team_data.members] : []
   return (
     <section className="w-full h-fit py-6">
       <div className="lg:max-w-5xl max-w-2xl mx-auto w-full p-6 flex items-center gap-2">
@@ -15,11 +17,9 @@ const TeamSection = async () => {
           <BiChevronRight />
         </Link>
       </div>
-      <div className="lg:max-w-5xl max-w-2xl mx-auto w-full px-6 grid lg:grid-cols-4 grid-cols-2 auto-rows-auto gap-4 members_grid">
-        {
-          members.map(member => <TeamMemberCard key={member} member={member} />)
-        }
-      </div>
+      <Suspense fallback={<TeamSkeleton />}>
+        <MembersGrid />
+      </Suspense>
     </section>
   )
 }
