@@ -1,8 +1,8 @@
 import TravelWatcher from "@/components/entities/travel/watcher";
+import type { Metadata, Viewport } from "next";
+import { Geologica } from "next/font/google";
 import "ui/dist/style.css";
 import "./globals.css";
-import type { Metadata } from "next";
-import { Geologica } from "next/font/google";
 const first_font = Geologica({
   subsets: ["latin", "cyrillic"],
   weight: ["600", "500", "400", "300", "200"],
@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   title: "Darkmaterial",
   description: "Created by DM Family",
 };
+export const viewport: Viewport = {
+  themeColor: "#000",
+  colorScheme: "dark"
+}
 
 export default function RootLayout({ children }: { children: JSX.Element }) {
   return (
