@@ -53,6 +53,9 @@ dependencies:
   framer-motion:
     specifier: ^11.0.3
     version: 11.0.3(react-dom@18.2.0)(react@18.2.0)
+  hooks:
+    specifier: github:yz13-env/hooks
+    version: github.com/yz13-env/hooks/c3bc70464a3c91f1c8001a28fa131dbd12dbc1ae(react-dom@18.2.0)(react@18.2.0)
   jsonwebtoken:
     specifier: 8.5.1
     version: 8.5.1
@@ -7858,6 +7861,33 @@ packages:
       react-dom: '18'
     dependencies:
       ahooks: 3.7.10(react@18.2.0)
+      firebase: 10.8.1
+      jsonwebtoken: 8.5.1
+      luxon: 3.4.4
+      next: 13.5.6(react-dom@18.2.0)(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-firebase-hooks: 5.1.1(firebase@10.8.1)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@opentelemetry/api'
+      - '@react-native-async-storage/async-storage'
+      - babel-plugin-macros
+      - sass
+    dev: false
+
+  github.com/yz13-env/hooks/c3bc70464a3c91f1c8001a28fa131dbd12dbc1ae(react-dom@18.2.0)(react@18.2.0):
+    resolution: {tarball: https://codeload.github.com/yz13-env/hooks/tar.gz/c3bc70464a3c91f1c8001a28fa131dbd12dbc1ae}
+    id: github.com/yz13-env/hooks/c3bc70464a3c91f1c8001a28fa131dbd12dbc1ae
+    name: hooks
+    version: 0.0.3
+    engines: {node: '20'}
+    peerDependencies:
+      react: '18'
+      react-dom: '18'
+    dependencies:
+      ahooks: 3.7.10(react@18.2.0)
+      api: github.com/yz13-env/api/0cd738322617cbbc16647d528e214c5ef8257e7f(react-dom@18.2.0)(react@18.2.0)
       firebase: 10.8.1
       jsonwebtoken: 8.5.1
       luxon: 3.4.4

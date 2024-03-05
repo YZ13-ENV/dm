@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   description: "Created by DM Family",
 };
 export const viewport: Viewport = {
-  themeColor: "#000"
+  themeColor: "#000",
+  colorScheme: "dark"
 }
 
 export default function RootLayout({ children }: { children: JSX.Element }) {
