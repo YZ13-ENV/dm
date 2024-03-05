@@ -1,12 +1,12 @@
 'use client'
-import { Input } from "@/components/ui/input"
-import SettingsBlock from "."
-import { Separator } from "@/components/ui/separator"
-import { BiCheck, BiLoaderAlt, BiX } from "react-icons/bi"
-import { useState } from "react"
-import { user } from "@/api/user"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Separator } from "@/components/ui/separator"
 import { useDebounceEffect } from "ahooks"
+import { user } from "api"
+import { useState } from "react"
+import { BiCheck, BiLoaderAlt, BiX } from "react-icons/bi"
+import SettingsBlock from "."
 
 type Props = {
     uid: string
@@ -17,12 +17,12 @@ const NicknameBlock = ({ nickname, uid }: Props) => {
     const [loading, setLoading] = useState<boolean>(false)
     const [exist, setExist] = useState<boolean>(true)
     const isSame = name === nickname
-    const checkNickname = async() => {
+    const checkNickname = async () => {
         const isExist = await user.byNick.short(name, true) as boolean | null
         if (isExist === true) setExist(true)
         setExist(false)
     }
-    const createNick = async() => {
+    const createNick = async () => {
         setLoading(true)
         if (nickname.length > 0) await user.byNick.delete(nickname)
         const reference = await user.byNick.create(name, uid)
@@ -33,7 +33,7 @@ const NicknameBlock = ({ nickname, uid }: Props) => {
     }
     useDebounceEffect(() => {
         if (!isSame && name.length !== 0) checkNickname()
-    },[name, isSame], { wait: 2000 })
+    }, [name, isSame], { wait: 2000 })
     return (
         <SettingsBlock
             name='Никнейм'
@@ -44,10 +44,10 @@ const NicknameBlock = ({ nickname, uid }: Props) => {
                 <div className="px-2">
                     {
                         loading
-                        ? <BiLoaderAlt size={18} className='text-muted-foreground animate-spin' />
-                        : exist
-                        ? <BiX size={18} className='text-muted-foreground' />
-                        : <BiCheck size={18} className='text-muted-foreground' />
+                            ? <BiLoaderAlt size={18} className='text-muted-foreground animate-spin' />
+                            : exist
+                                ? <BiX size={18} className='text-muted-foreground' />
+                                : <BiCheck size={18} className='text-muted-foreground' />
                     }
                 </div>
             </div>
@@ -58,13 +58,13 @@ const NicknameBlock = ({ nickname, uid }: Props) => {
             </div>
             {
                 !exist && !isSame ?
-                <div className="w-full h-fit flex items-center justify-end">
-                    <Button onClick={createNick} disabled={!user || exist || loading} className="gap-2">
-                        { loading && <BiLoaderAlt className='animate-spin' /> }
-                        Сохранить
-                    </Button>
-                </div>
-                : <></>
+                    <div className="w-full h-fit flex items-center justify-end">
+                        <Button onClick={createNick} disabled={!user || exist || loading} className="gap-2">
+                            {loading && <BiLoaderAlt className='animate-spin' />}
+                            Сохранить
+                        </Button>
+                    </div>
+                    : <></>
             }
         </SettingsBlock>
     )

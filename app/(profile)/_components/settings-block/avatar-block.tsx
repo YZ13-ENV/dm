@@ -1,20 +1,18 @@
 'use client'
-import DropZone from '@/components/shared/drop-zone'
-import SettingsBlock from '.'
 import Avatar from '@/components/shared/avatar'
-import { file as fileAPI } from '@/api/file'
-import { user as userAPI } from '@/api/user'
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { auth } from '@/utils/app'
-import { updateProfile } from 'firebase/auth'
+import DropZone from '@/components/shared/drop-zone'
 import { cdn } from '@/helpers/cdn'
+import { auth } from '@/utils/app'
+import { file as fileAPI, user as userAPI } from 'api'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import SettingsBlock from '.'
 
 type Props = {
     avatarURL: string
 }
 const AvatarBlock = ({ avatarURL }: Props) => {
     const [user] = useAuthState(auth)
-    const uploadAvatarAndSave = async(file: File) => {
+    const uploadAvatarAndSave = async (file: File) => {
         if (user) {
             if (user.photoURL) await fileAPI.upload.delete(user.photoURL)
             const link = `users/${user.uid}/avatar/${file.name}`
@@ -34,7 +32,7 @@ const AvatarBlock = ({ avatarURL }: Props) => {
             <div className="ml-auto w-12 aspect-square rounded-full relative">
                 <Avatar src={avatarURL} size={48} />
                 <DropZone disabled={!user} onFile={file => uploadAvatarAndSave(file)}
-                className='z-20 absolute top-0 w-full aspect-square' />
+                    className='z-20 absolute top-0 w-full aspect-square' />
             </div>
         </SettingsBlock>
     )

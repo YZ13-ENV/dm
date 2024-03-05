@@ -7,7 +7,7 @@ type Props = {
 const GridTemplate = ({ children }: Props) => {
     return (
         <div className='last-posts-grid'>
-            { children }
+            {children}
         </div>
     )
 }

@@ -1,13 +1,13 @@
 import { Separator } from '@/components/ui/separator'
+import { user as userAPI } from 'api'
 import { cookies } from 'next/headers'
-import { user as userAPI } from '@/api/user'
-import DisplayNameBlock from '../../_components/settings-block/diplay-name-block'
-import NicknameBlock from '../../_components/settings-block/nickname-block'
 import AvatarBlock from '../../_components/settings-block/avatar-block'
-import PositionBlock from '../../_components/settings-block/position-block'
+import DisplayNameBlock from '../../_components/settings-block/diplay-name-block'
 import EmailBlock from '../../_components/settings-block/email-block'
+import NicknameBlock from '../../_components/settings-block/nickname-block'
+import PositionBlock from '../../_components/settings-block/position-block'
 
-const page = async() => {
+const page = async () => {
     const cookiesList = cookies()
     const uidCookie = cookiesList.get('uid')
     const uid = uidCookie ? uidCookie.value : null
