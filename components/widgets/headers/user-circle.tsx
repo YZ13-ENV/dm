@@ -1,7 +1,7 @@
 'use client'
-import { user as userAPI } from '@/api/user'
 import { menu } from '@/const/menu-map'
 import { auth } from '@/utils/app'
+import { user as userAPI } from 'api'
 import type { User } from 'firebase/auth'
 import { useSession } from 'hooks'
 import { useEffect, useState } from 'react'
