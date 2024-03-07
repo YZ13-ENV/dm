@@ -1,10 +1,12 @@
 import { default_api } from "@/api/default"
 import Image from "next/image"
 import Link from "next/link"
+import { unstable_noStore } from "next/cache"
 import { ProjectsGrid } from "ui"
 import FullProject from "../../_components/app-preview/project-full"
 
 const page = async () => {
+  unstable_noStore()
   const projects = await default_api.all()
   return (
     <>
