@@ -21,6 +21,7 @@
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.7",
+    "@vercel/speed-insights": "^1.0.10",
     "ahooks": "^3.7.8",
     "api": "github:yz13-env/api",
     "class-variance-authority": "^0.7.0",
