@@ -1,7 +1,7 @@
-import TravelWatcher from "@/components/entities/travel/watcher";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import { Geologica } from "next/font/google";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { WebVitals } from 'ui';
 import "ui/dist/style.css";
 import "./globals.css";
 const first_font = Geologica({
@@ -26,9 +26,9 @@ export default function RootLayout({ children }: { children: JSX.Element }) {
       className={`${first_font.className} ${first_font.variable}`}
     >
       <body className="min-h-screen dark">
-        <TravelWatcher />
-        {children}
+        <WebVitals appId="darkmaterial" />
         <SpeedInsights />
+        {children}
       </body>
     </html>
   );
