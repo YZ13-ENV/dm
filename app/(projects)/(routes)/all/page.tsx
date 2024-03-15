@@ -1,27 +1,34 @@
-import { default_api } from "@/api/default"
+import AppProjectsGridSkeleton from "@/components/skeletons/app-projects-grid"
+import dynamic from "next/dynamic"
 import Image from "next/image"
 import Link from "next/link"
-import { unstable_noStore } from "next/cache"
-import { ProjectsGrid } from "ui"
-import FullProject from "../../_components/app-preview/project-full"
-
+import { Suspense } from "react"
+const ProjectsAppGrid = dynamic(() => import("../../_components/projects-grid"), {
+  loading: () => <AppProjectsGridSkeleton />
+})
+const UserSection = dynamic(() => import("@/components/widgets/headers/user-section"), {
+  ssr: false,
+  loading: () => <div className="w-fit h-fit flex items-center gap-2">
+    <div className="w-9 rounded-full aspect-square bg-muted" />
+    <div className="w-9 rounded-full aspect-square bg-muted" />
+    <div className="w-9 rounded-full aspect-square bg-muted" />
+  </div>
+});
 const page = async () => {
-  unstable_noStore()
-  const projects = await default_api.all()
   return (
     <>
       <header className="max-w-4xl mx-auto h-16 w-full px-6 flex items-center justify-between">
         <Link href='/home'>
           <Image src="/dm-star-dark.svg" width={32} height={32} alt='app-logo' />
         </Link>
-        <ProjectsGrid />
+        <div className="flex items-center gap-2">
+          <UserSection />
+        </div>
       </header>
-      <div className="max-w-4xl mx-auto w-full px-3 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 auto-rows-auto gap-0 py-12">
-        {
-          projects
-            .sort((a, b) => a.createAt - b.createAt)
-            .map(project => <FullProject key={project.doc_id} project={project} />)
-        }
+      <div className="max-w-4xl mx-auto">
+        <Suspense fallback={<AppProjectsGridSkeleton />}>
+          <ProjectsAppGrid />
+        </Suspense>
       </div>
     </>
   )
