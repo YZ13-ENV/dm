@@ -1,11 +1,10 @@
-import AppPreviewSkeleton from "@/components/skeletons/app-preview"
-import dynamic from "next/dynamic"
 import Image from "next/image"
-import { Suspense } from "react"
 import SearchWrapper from "./search-wrapper"
-const AllPreview = dynamic(() => import("./all-preview"), {
-  loading: () => <AppPreviewSkeleton />
-})
+// import AppPreviewSkeleton from "@/components/skeletons/app-preview"
+// const AllPreview = dynamic(() => import("./all-preview"), {
+// loading: () => <AppPreviewSkeleton />
+// })
+
 
 const MainSection = () => {
   return (
@@ -23,9 +22,10 @@ const MainSection = () => {
       <div className="lg:max-w-5xl max-w-2xl w-full mx-auto px-6">
         <SearchWrapper />
       </div>
-      <Suspense fallback={<AppPreviewSkeleton />}>
+
+      {/* <Suspense fallback={<AppPreviewSkeleton />}>
         <AllPreview />
-      </Suspense>
+      </Suspense> */}
     </section>
   )
 }
